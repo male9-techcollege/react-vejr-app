@@ -1,0 +1,42 @@
+/* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
+@use "../../styles/variables.module.scss" as *;
+@use "../../styles/mixins.module.scss" as *;
+
+/* #region Library styling (very basic, NO responsiveness) */
+.mainNavByMariePierreLessard {
+    background-color: $clr-bg-mainnav-by-Marie-Pierre-Lessard;
+    min-height: $size-minimum-dev-by-Marie-Pierre-Lessard;
+    
+    ul {
+        @include verticalListByMariePierreLessard;
+        justify-self: center;
+
+        a {
+            display: block;
+            min-height: $size-minimum-dev-by-Marie-Pierre-Lessard;
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+    .mainNavByMariePierreLessard {
+    
+            ul {
+                @include horizontalListByMariePierreLessard;
+            }
+    
+        }
+}
+
+.activeNavLinkByMariePierreLessard {
+    background-color: $clr-bg-globalheader-by-Marie-Pierre-Lessard;
+}
+/* #endregion Library styling (very basic, NO responsiveness) */
+
+/* #region Project-specific styling goes here (overriding library styling) */
+
+
+
+/* #endregion Project-specific styling */
+

@@ -1,0 +1,35 @@
+/* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
+@use "./styles/variables.module.scss" as *;
+
+/* #region Library styling (applied globally) */
+/* Universal selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML element */
+:root {
+    font-family: $font-fam-root-w-fallbacks-by-Marie-Pierre-Lessard;
+    font-size: $size-1rem-by-Marie-Pierre-Lessard;
+    color: $clr-font-root-by-Marie-Pierre-Lessard;
+    background-color: $clr-bg-root-by-Marie-Pierre-Lessard;
+}
+
+/* Putting these CSS declarations in main.scss saves the time that would be required 
+to give a class to each image component. (Since HTML elements have the lowest specificity, different properties 
+can be given to specific (groups of) images as needed.) */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* #endregion Library styling (applied globally) */
+
+/* #region Project-specific styling goes here (overriding library styling) */
+
+
+
+/* #endregion Project-specific styling */
+

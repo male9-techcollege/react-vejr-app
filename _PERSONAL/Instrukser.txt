@@ -1,0 +1,17 @@
+TO DO at library:
+- download latest update to Wallywood repo (there was none on Wednesday)
+- if there is a new Wallywood repo, compare and look up what I don't understand on Internet
+- check e-Boks and e-mail
+
+Bemærkning til læreren om min plan, før kodningen startede:
+- Da vi fik denne opgave, var der på en dag, hvor du var syg, og som blev fulgt af en hjemmearbejdsdag. Dagen, hvor du var syg, 
+var de fleste gået hjemme, og de få andre elever som blev snakkede om alt under solen det meste af dagen uden at arbejde seriøst
+på deres opgave. Iblandt disse elever var de samme mænd, som grinede af mig, imens jeg stillede spørgsmål til dig på tirsdag 
+den 27. januar. Da jeg skulle først aflevere en anden opgave, tacklede jeg ikke problemet med disse mænds manglende seriøsitet/
+professionalisme ved at prøve at etablere et samarbejde. Dagen efter var jeg alene i klassen. 
+- Jeg begyndte at bygge flere komponenter, som jeg kunne bruge i sådan en projektopgave. Det gjorde jeg ved at aflevere opgaver,
+som jeg ikke havde gjort endnu. Jeg havde klart behov for kort til vejrudsigterne og en router (opgaverne i min repository 
+react-gallery-wrapper). I disse tidligere opgaver (blandt andet en widget med knapper), valgte jeg at tænke mine komponenter 
+igennem på sådan en måde, at de kunne anses som bibliotekskomponenter eller ville i hvert fald være nemme at "refactor" til 
+bibliotekskomponenter. 
+- 

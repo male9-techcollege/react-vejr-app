@@ -1,0 +1,16 @@
+/* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
+@use "../../styles/variables.module.scss" as *;
+
+/* #region Library styling (basic) */
+.gFooterByMariePierreLessard {
+    background-color: $clr-bg-globalfooter-by-Marie-Pierre-Lessard;
+    min-height: $size-minimum-dev-by-Marie-Pierre-Lessard;
+}
+/* #endregion Library styling (basic) */
+
+/* #region Project-specific styling goes here (overriding library styling) */
+
+
+
+/* #endregion Project-specific styling */
+

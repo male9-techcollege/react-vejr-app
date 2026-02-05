@@ -1,0 +1,55 @@
+/* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
+@use "../../../styles/variables.module.scss" as *;
+@use "../../../styles/mixins.module.scss" as *;
+
+
+/* IMPORTANT NOTE: 
+**Cards** have their own flex-container declarations!
+The classes below are for a **higher-level** containers, e.g. those under section headings.
+Reason: the containers below have margins, which cards should NOT have since they are normally inside of a container
+    with multiple cards in them, and that container typically has the necessary margins, padding, and gaps.
+*/
+
+/* #region Library styling (basic, with or without responsiveness) */
+/* The classes below are an edited/expanded version of flex-container styling in assignment react-joke-fetcher */
+.responsiveFlexContainerWoPassePartoutByMariePierreLessard {
+    @include flexContainerMobilesWRegGapAndCenteringByMariePierreLessard;
+    margin-block: $size-reg-spacing-by-Marie-Pierre-Lessard;
+}
+
+@media (min-width: 768px) {
+    .responsiveFlexContainerWoPassePartoutByMariePierreLessard {
+        @include flexContainerTabletsWRegGapAndCenteringByMariePierreLessard;
+    }
+}
+
+.unresponsiveFlexContainerWoPassePartoutAlwaysVerticalByMariePierreLessard {
+    @include flexContainerMobilesWRegGapAndCenteringByMariePierreLessard;
+    margin-block: $size-reg-spacing-by-Marie-Pierre-Lessard;
+}
+
+.responsiveFlexContainerWPassePartoutByMariePierreLessard {
+    @include flexContainerMobilesWRegGapAndCenteringByMariePierreLessard;
+    padding: $size-reg-spacing-by-Marie-Pierre-Lessard;
+    background-color: $clr-bg-passe-partout-by-Marie-Pierre-Lessard;
+}
+
+@media (min-width: 768px) {
+    .responsiveFlexContainerWPassePartoutByMariePierreLessard {
+        @include flexContainerTabletsWRegGapAndCenteringByMariePierreLessard;
+    }
+}
+
+.unresponsiveFlexContainerWPassePartoutAlwaysVerticalByMariePierreLessard {
+    @include flexContainerMobilesWRegGapAndCenteringByMariePierreLessard;
+    padding: $size-reg-spacing-by-Marie-Pierre-Lessard;
+    background-color: $clr-bg-passe-partout-by-Marie-Pierre-Lessard;
+}
+/* #endregion Library styling (basic, with or without responsiveness) */
+
+/* #region Project-specific styling goes here (overriding library styling) */
+
+
+
+/* #endregion Project-specific styling */
+
