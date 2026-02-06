@@ -20,9 +20,9 @@ export interface cardBodyInterfaceByMariePierreLessard {
 type extendedGenericInterfaceForCardBodyByMariePierreLessard = HTMLAttributes<HTMLDivElement>
     & cardBodyInterfaceByMariePierreLessard;
 
-export function CardBodyByMariePierreLessard(
+export const CardBodyByMariePierreLessard = (
     { bodyContent, children, ...rest }:
-        extendedGenericInterfaceForCardBodyByMariePierreLessard) {
+        extendedGenericInterfaceForCardBodyByMariePierreLessard)=> {
 
     // #region Reason for the following use of the switch statement and fallback variable as required argument
     /* I want to make sure that the creation of an HTML element happens in every case, in spite of the fact that
@@ -118,9 +118,9 @@ export interface cardFooterInterfaceByMariePierreLessard {
 type extendedGenericInterfaceForCardFooterByMariePierreLessard = HTMLAttributes<HTMLElement>
     & cardFooterInterfaceByMariePierreLessard;
 
-export function CardFooterByMariePierreLessard(
+export const CardFooterByMariePierreLessard = (
     { footerContent, children, ...rest }:
-        extendedGenericInterfaceForCardFooterByMariePierreLessard) {
+        extendedGenericInterfaceForCardFooterByMariePierreLessard)=> {
 
     // #region Reason for the following use of the switch statement and fallback variable as required argument
     /* I want to make sure that the creation of an HTML element happens in every case, in spite of the fact that

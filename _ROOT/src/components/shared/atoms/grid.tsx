@@ -16,7 +16,7 @@ interface justChildrenByMariePierreLessard {
 
 type extendedGenericInterfaceForDivByMariePierreLessard = HTMLAttributes<HTMLDivElement> & justChildrenByMariePierreLessard;
 
-export function GridByMariePierreLessard({ children, ...rest }: extendedGenericInterfaceForDivByMariePierreLessard) {
+export const GridByMariePierreLessard = ({ children, ...rest }: extendedGenericInterfaceForDivByMariePierreLessard)=> {
     return (
         <div {... rest}>
             {children}

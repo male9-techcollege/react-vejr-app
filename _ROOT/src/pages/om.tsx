@@ -9,7 +9,7 @@ import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
 import { SectionH2ByMariePierreLessard } from "../components/main-el/section-h2";
 
-export function AboutByMariePierreLessard() {
+export const AboutByMariePierreLessard = ()=> {
 
     /* See notes and sources regarding useOutletContext in file global-layout.tsx 
     Interestingly, I get an error until I specify that the type of useOutletContext is any.

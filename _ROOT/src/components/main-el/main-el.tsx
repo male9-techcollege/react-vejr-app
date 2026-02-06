@@ -38,7 +38,7 @@ type extendedBasicGenericInterfaceByMariePierreLessard = HTMLAttributes<HTMLElem
 
 /* After I added a prop for children, I ended up getting an type error regarding the CSS classes that I had already given main.
 As a consequence, the classes had to be provided as arguments instead of being defined here. */
-export function MainByMariePierreLessard({ children, ...rest }: extendedBasicGenericInterfaceByMariePierreLessard) {
+export const MainByMariePierreLessard = ({ children, ...rest }: extendedBasicGenericInterfaceByMariePierreLessard)=> {
     return (
         <main {... rest}>
             {children}

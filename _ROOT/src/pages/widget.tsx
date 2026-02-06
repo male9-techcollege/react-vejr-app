@@ -6,7 +6,7 @@ import { useOutletContext } from "react-router";
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { StopwatchByMariePierreLessard } from "../components/widgets/stopwatch"
 
-export function WidgetByMariePierreLessard() {
+export const WidgetByMariePierreLessard = ()=> {
 
     /* See notes and sources regarding useOutletContext in file global-layout.tsx
     See also experimentation notes in home.tsx 

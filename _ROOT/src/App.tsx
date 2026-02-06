@@ -7,7 +7,7 @@ Byg en vejr applikation med live data fra Open-Meteo API.
 -- En "Hovedside" der viser en detaljeret oversigt over det aktuelle vejr for jeres lokation
 -- En "Prognose" side der viser det kommende vejr de næste 3 dage (kort oversigt)
 -- En "Om" side der forklarer hvilke teknologier appen bruger, samt deler relevante links til evt. styling biblioteker, icon biblioteker, API´er og andre node packages i har brugt.
-Derudover skal appen være opbygget semantisk korrekt i HTML og den skal selvfølgelig være skrevet i Reacts .JSX format. 
+Derudover skal appen være opbygget semantisk korrekt i HTML og den skal selvfølgelig være skrevet i Reacts .TSX/.JSX format. 
 Der skal være en README.md fil, der beskriver projektet og hvem arbejdede på det.
 
 Resourcer:
@@ -21,7 +21,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import "./App.scss";
 import { GlobalLayoutByMariePierreLessard } from "./layouts/global-layout";
 import { HomeByMariePierreLessard } from "./pages/home";
-import { CardsByMariePierreLessard } from "./pages/cards";
+import { CardsByMariePierreLessard } from "./pages/prognose";
 import { AboutByMariePierreLessard } from "./pages/om";
 import { ErrorPageByMariePierreLessard } from "./pages/notfound";
 

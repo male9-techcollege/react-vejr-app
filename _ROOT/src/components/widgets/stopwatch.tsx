@@ -20,7 +20,7 @@ import { CardWithDivByMariePierreLessard } from "../shared/m-and-o/card";
 import { CardBodyByMariePierreLessard, CardFooterByMariePierreLessard } from "../shared/atoms/card-parts";
 import { ToggleBtnComponentByMariePierreLessard, MultiTypeBtnComponentByMariePierreLessard } from "../shared/atoms/btns";
 
-export function StopwatchByMariePierreLessard() {
+export const StopwatchByMariePierreLessard = ()=> {
 
     const [isStopwatchRunningByMariePierreLessard, setIsStopwatchRunningByMariePierreLessard] = useState(false);
     const [durationRecordedByMariePierreLessard, setDurationRecordedByMariePierreLessard] = useState(0);

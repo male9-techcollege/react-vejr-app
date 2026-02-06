@@ -16,7 +16,7 @@ interface justChildrenByMariePierreLessard {
 
 type extendedGenericInterfaceForDivByMariePierreLessard = HTMLAttributes<HTMLDivElement> & justChildrenByMariePierreLessard;
 
-export function FlexContainerByMariePierreLessard({ children, ...rest }: extendedGenericInterfaceForDivByMariePierreLessard) {
+export const FlexContainerByMariePierreLessard = ({ children, ...rest }: extendedGenericInterfaceForDivByMariePierreLessard)=> {
     return (
         <div {... rest}>
             {children}

@@ -5,7 +5,7 @@
 import sharedstyles from "../../styles/globals.module.scss";
 import headerstyling from "./g-header.module.scss";
 
-export function GlobalHeaderByMariePierreLessard() {
+export const GlobalHeaderByMariePierreLessard = ()=> {
     return(
         <header className={`
             ${headerstyling.gHeaderByMariePierreLessard} 

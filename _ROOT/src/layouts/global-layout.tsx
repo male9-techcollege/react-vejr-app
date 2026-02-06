@@ -31,7 +31,7 @@ https://www.reddit.com/r/reactjs/comments/q1apj7/how_to_add_multiple_classes_to_
 */
 // #endregion
 
-export function GlobalLayoutByMariePierreLessard() {
+export const GlobalLayoutByMariePierreLessard = ()=> {
 
     /* According to Kasper, NavLink components allow styling based on a state.
     The default active navigation item is the home page. On that page, the exercise about a React wrapper is displayed.
@@ -42,7 +42,7 @@ export function GlobalLayoutByMariePierreLessard() {
     sure that only the Outlet was updated, not the whole layout. Also, the title of a page isn't usually the exact text
     given as a menu item. The menu item is usually very short, while the title is supposed to be engaging, catchy, etc. 
     So, this part of the exercise is just about making us practice passing props to children components. */
-    const [activeNavItemByMariePierreLessard, setActiveNavItemByMariePierreLessard] = useState<string>("My Wrapper");
+    const [activeNavItemByMariePierreLessard, setActiveNavItemByMariePierreLessard] = useState<string>("Forside");
 
     /*  This works.
     useEffect(() => { 
@@ -55,7 +55,6 @@ export function GlobalLayoutByMariePierreLessard() {
         <>
             <GlobalHeaderByMariePierreLessard />
             <MainNavByMariePierreLessard 
-                state={activeNavItemByMariePierreLessard} 
                 setter={setActiveNavItemByMariePierreLessard} 
             />
             <MainByMariePierreLessard

@@ -21,18 +21,20 @@ import {
 } from "../components/shared/atoms/card-parts";
 import { HeadingElByMariePierreLessard } from "../components/shared/atoms/heading";
 
-export function CardsByMariePierreLessard() {
+export const CardsByMariePierreLessard = ()=> {
 
     /* See notes and sources regarding useOutletContext in file global-layout.tsx
     See also experimentation notes in home.tsx 
     */
     const { activeNavItemByMariePierreLessard } = useOutletContext<any>();
 
+    const dailyWeatherUrlByMariePierreLessard = "https://api.open-meteo.com/v1/forecast?latitude=57.04768&longitude=9.967618&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,snowfall_sum,precipitation_hours&timezone=Europe%2FBerlin&forecast_days=3&models=dmi_seamless";
+
     return (
         <SectionH1to2ByMariePierreLessard
             id={"prognose"}
             h1={`${activeNavItemByMariePierreLessard}`}
-            h2={"Placeholder"}
+            h2={"For i dag og de to følgende dage"}
         >
             {/* Maybe TO DO, perhaps in exercise 3: 
                     An unordered list component styled as a grid would be better as a card

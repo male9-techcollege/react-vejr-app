@@ -7,7 +7,7 @@ import typography from "../../styles/typography.module.scss";
 import sharedstyles from "../../styles/globals.module.scss";
 import footerstyling from "./g-footer.module.scss";
 
-export function GlobalFooterByMariePierreLessard() {
+export const GlobalFooterByMariePierreLessard = ()=> {
     return (
         <footer id="globalFooter" className={`
             ${footerstyling.gFooterByMariePierreLessard} 

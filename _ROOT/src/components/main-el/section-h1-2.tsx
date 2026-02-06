@@ -20,9 +20,9 @@ interface sectionH1to2ByMariePierreLessard {
 
 type extendedGenericInterfaceForSh1to2ByMariePierreLessard = HTMLAttributes<HTMLElement> & sectionH1to2ByMariePierreLessard;
 
-export function SectionH1to2ByMariePierreLessard(
+export const SectionH1to2ByMariePierreLessard = (
     { h1, h2, children, ...rest }: 
-    extendedGenericInterfaceForSh1to2ByMariePierreLessard) {
+    extendedGenericInterfaceForSh1to2ByMariePierreLessard)=> {
     return (
         <section {... rest}>
             <h1>{h1}</h1>

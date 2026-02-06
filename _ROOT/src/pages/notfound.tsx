@@ -6,7 +6,7 @@ import { Link } from "react-router";
 /* The following module does style the h1 (no class name given) */
 import typography from "../styles/typography.module.scss";
 
-export function ErrorPageByMariePierreLessard() {
+export const ErrorPageByMariePierreLessard = ()=> {
     return (
         <>
             <h1>Fejl 404: siden blev ikke fundet</h1>

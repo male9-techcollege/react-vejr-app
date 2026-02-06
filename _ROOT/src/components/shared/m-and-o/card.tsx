@@ -56,9 +56,9 @@ node_modules/@types/react/ts5.0/index.d.ts */
 type extendedGenericInterfaceForNonFocusCardByMariePierreLessard = HTMLAttributes<HTMLElement> 
     & NonFocusableCardInterfaceByMariePierreLessard;
 
-export function CardWithArticleByMariePierreLessard(
+export const CardWithArticleByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardByMariePierreLessard)=> {
 
     return (
         <article {...rest}>
@@ -67,9 +67,9 @@ export function CardWithArticleByMariePierreLessard(
     );
 };
 
-export function CardWithSectionByMariePierreLessard(
+export const CardWithSectionByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardByMariePierreLessard)=> {
 
     return (
         <section {...rest}>
@@ -78,9 +78,9 @@ export function CardWithSectionByMariePierreLessard(
     );
 };
 
-export function CardWithAsideByMariePierreLessard(
+export const CardWithAsideByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardByMariePierreLessard)=> {
 
     return (
         <aside {...rest}>
@@ -93,9 +93,9 @@ export function CardWithAsideByMariePierreLessard(
 Type for card with figure in at least 2 parts (children and figcaption), but the 1-part version might be enough 
 (ideas: figcaption plus img and/or sth else, probably using figcaption element (or component) and a children placeholder) 
 */
-export function CardWithFigureByMariePierreLessard(
+export const CardWithFigureByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardByMariePierreLessard)=> {
 
     return (
         <figure {...rest}>
@@ -111,9 +111,9 @@ node_modules/@types/react/ts5.0/index.d.ts */
 type extendedGenericInterfaceForNonFocusCardWithDivByMariePierreLessard = HTMLAttributes<HTMLDivElement> 
     & NonFocusableCardInterfaceByMariePierreLessard;
 
-export function CardWithDivByMariePierreLessard(
+export const CardWithDivByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardWithDivByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardWithDivByMariePierreLessard)=> {
 
     return (
         <div {...rest}>
@@ -131,9 +131,9 @@ a component for a form. But does it belong among cards?
 type extendedGenericInterfaceForNonFocusCardWithFormByMariePierreLessard = FormHTMLAttributes<HTMLFormElement>
     & NonFocusableCardInterfaceByMariePierreLessard;
 
-export function CardWithFormByMariePierreLessard(
+export const CardWithFormByMariePierreLessard = (
     { children, ...rest }:
-    extendedGenericInterfaceForNonFocusCardWithFormByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCardWithFormByMariePierreLessard)=> {
 
     return (
         <form {...rest}>
@@ -163,9 +163,9 @@ I don't think that this option would make the styling easy or the app maintainab
 & extendedGenericInterfaceForCardFooterByMariePierreLessard;
 */
 
-export function Card2PartsWithArticleByMariePierreLessard(
+export const Card2PartsWithArticleByMariePierreLessard = (
     { bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard)=> {
 
     return (
         <article {...rest}>
@@ -177,9 +177,9 @@ export function Card2PartsWithArticleByMariePierreLessard(
     );
 };
 
-export function Card2PartsWithSectionByMariePierreLessard(
+export const Card2PartsWithSectionByMariePierreLessard = (
     { bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard)=> {
 
     return (
         <section {...rest}>
@@ -191,9 +191,9 @@ export function Card2PartsWithSectionByMariePierreLessard(
     );
 };
 
-export function Card2PartsWithAsideByMariePierreLessard(
+export const Card2PartsWithAsideByMariePierreLessard = (
     { bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard2PartsByMariePierreLessard)=> {
 
     return (
         <aside {...rest}>
@@ -214,9 +214,9 @@ type extendedGenericInterfaceForNonFocusCard2PartsInDivByMariePierreLessard = HT
     & cardBodyInterfaceByMariePierreLessard
     & cardFooterInterfaceByMariePierreLessard;
 
-export function Card2PartsWithDivByMariePierreLessard(
+export const Card2PartsWithDivByMariePierreLessard = (
     { bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard2PartsInDivByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard2PartsInDivByMariePierreLessard)=> {
 
     return (
         <div {...rest}>
@@ -248,9 +248,9 @@ I don't think that this option would make the styling easy or the app maintainab
 & extendedGenericInterfaceForCardFooterByMariePierreLessard;
 */
 
-export function Card3PartsWithArticleByMariePierreLessard(
+export const Card3PartsWithArticleByMariePierreLessard = (
     { headingNr, headingText, bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard)=> {
 
     return (
         <article {...rest}>
@@ -263,9 +263,9 @@ export function Card3PartsWithArticleByMariePierreLessard(
     );
 };
 
-export function Card3PartsWithSectionByMariePierreLessard(
+export const Card3PartsWithSectionByMariePierreLessard = (
     { headingNr, headingText, bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard)=> {
 
     return (
         <section {...rest}>
@@ -278,9 +278,9 @@ export function Card3PartsWithSectionByMariePierreLessard(
     );
 };
 
-export function Card3PartsWithAsideByMariePierreLessard(
+export const Card3PartsWithAsideByMariePierreLessard = (
     { headingNr, headingText, bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard3PartsByMariePierreLessard)=> {
 
     return (
         <aside {...rest}>
@@ -303,9 +303,9 @@ type extendedGenericInterfaceForNonFocusCard3PartsInDivByMariePierreLessard = HT
     & cardBodyInterfaceByMariePierreLessard
     & cardFooterInterfaceByMariePierreLessard;
 
-export function Card3PartsWithDivByMariePierreLessard(
+export const Card3PartsWithDivByMariePierreLessard = (
     { headingNr, headingText, bodyContent, footerContent, children, ...rest }:
-    extendedGenericInterfaceForNonFocusCard3PartsInDivByMariePierreLessard) {
+    extendedGenericInterfaceForNonFocusCard3PartsInDivByMariePierreLessard)=> {
 
     return (
         <aside {...rest}>

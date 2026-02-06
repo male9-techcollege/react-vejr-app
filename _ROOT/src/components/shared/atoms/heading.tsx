@@ -23,9 +23,9 @@ type extendedGenericInterfaceForHeadingElByMariePierreLessard = HTMLAttributes<H
 og da opgaven kun krævede et element med props, dvs. et heading-element. Da de forskellige props beskrevet i instrukserne
 skifter navn i instrukserne (selvom det ikke fungerer sådan i kodningen), tænkte jeg at navnet på komponenter nok ikke var
 særlig vigtigt! */
-export function HeadingElByMariePierreLessard(
+export const HeadingElByMariePierreLessard = (
     { headingNr, headingText, ...rest }:
-    extendedGenericInterfaceForHeadingElByMariePierreLessard) {
+    extendedGenericInterfaceForHeadingElByMariePierreLessard)=> {
 
     // #region Sources and notes on experiments
     /* I doubted that this could work because converting strings to HTML tags might not be allowed in React,
