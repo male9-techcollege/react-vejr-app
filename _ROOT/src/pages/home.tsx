@@ -5,13 +5,12 @@
 */
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
-import gridstyling from "../components/shared/atoms/grid.module.scss";
+import { placeholderCurrentWeather } from "../data/openmeteo-placeholders";
 
+import gridstyling from "../components/shared/atoms/grid.module.scss";
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
 
-/* TO DO delete later; this is just for offline development  */
-import { currentSample } from "../types/openmeteo-current-sample";
 
 export const HomeByMariePierreLessard = () => {
 
@@ -27,7 +26,7 @@ export const HomeByMariePierreLessard = () => {
     2. Kasper advises to install an extension like
     Paste JSON as Code (Refresh)
     in order to get the types of incoming data */
-    const [hourlyWeatherDataByMariePierreLessard, setHourlyWeatherDataByMariePierreLessard] = useState<any>();
+    const [hourlyWeatherDataByMariePierreLessard, setHourlyWeatherDataByMariePierreLessard] = useState<any>(placeholderCurrentWeather);
 
     /* In order to know what is returned (its structure, etc.) and get the types (e.g. with Paste JSON as Code (Refresh)), 
     the following code can temporarily be used:
@@ -50,15 +49,46 @@ export const HomeByMariePierreLessard = () => {
             .then((data) => setHourlyWeatherDataByMariePierreLessard(data));
     }, []);
     */
-    /* TO DO the following code is just to use the sample weather data instead of making calls to the API. 
-    
-    However, keep this reminder:
-    the setter has to be in useEffect, otherwise there is an infinite loop. It is because React re-renders every time 
+    /* Keep the following reminders:
+    1. The setter has to be in useEffect, otherwise there is an infinite loop. It is because React re-renders every time 
     a state changes.
-    */
+
     useEffect(() => {
         setHourlyWeatherDataByMariePierreLessard(currentSample);
     }, []);
+
+    2. The above doesn't work every time, actually! 
+    Not unless the useState hook has default data to put in the state. In the absence of data
+    in the state on mounting, errors are thrown because the template doesn't have the required data to show yet. useEffect
+    takes too long to run, even if it's just milliseconds.
+    
+    I had encountered this problem when I finished react-joke-fetcher, actually, but I think that I blamed the server and
+    its speed. The following troubleshooting notes show that this problem can occur even when the data to put in the state
+    is readily available on the same machine (IF there is no default value in useState).
+
+    Troubleshooting notes:
+    When hourlyWeatherDataByMariePierreLessard
+    stores the sample object that I got out of the API and put in a file, 
+    the following view code only works as long as it is commented out until everything else 
+    is mounted, i.e. it doesn't work if I access the page when the view code is in the component.
+
+    <p>Kote over havets overflade: {hourlyWeatherDataByMariePierreLessard.elevation} m</p> 
+    (Kote over havets overflade = Elevation in EN)
+
+    The view code doesn't work at all when I try to display the data straight from the API.
+    In the console.log, the message says that elevation is undefined.
+    The following always happens when I make an API call:
+    The console log of hourlyWeatherDataByMariePierreLessard first says that hourlyWeatherDataByMariePierreLessard
+    is undefined, and then it shows me the object because there are 2 executions of the console log.
+
+    I need to make sure that the code only attemps to display this after the data was saved in the state.
+
+    Interestingly, in react-fetch-codealong-med-kasper, the fetch in useEffect is exactly the same,
+    and there is no default value in useState,
+    but there is a difference in the template: an array function has to run before the fetched data
+    is displayed. Running that function must delay the display long enough to avoid the error that 
+    I am encountering.  
+    */
 
     /* Note: this is not going to show the weather for the right hour if the user is not in the same time zone,
     but I think that solving that issue would be beyong the learning goals of this exercise. */
@@ -85,29 +115,6 @@ export const HomeByMariePierreLessard = () => {
             h2={"Nuværende vejrudsigt omkring TechCollege, Aalborg, Danmark"}
         >
             <GridByMariePierreLessard className={gridstyling.responsiveGridWoPassePartoutByMariePierreLessard}>
-                {/* TO DO 
-                When hourlyWeatherDataByMariePierreLessard
-                stores the sample object that I got out of the API and put in a file, 
-                the following view code only works as long as it is commented out until everything else 
-                is mounted, i.e. it doesn't work if I access the page when the view code is in the component.
-
-                <p>Kote over havets overflade: {hourlyWeatherDataByMariePierreLessard.elevation} m</p> 
-                (Kote over havets overflade = Elevation in EN)
-
-                The view code doesn't work at all when I try to display the data straight from the API.
-                In the console.log, the message says that elevation is undefined.
-                The following always happens when I make an API call:
-                The console log of hourlyWeatherDataByMariePierreLessard first says that hourlyWeatherDataByMariePierreLessard
-                is undefined, and then it shows me the object because there are 2 executions of the console log.
-
-                I need to make sure that the code only attemps to display this after the data was saved in the state,
-                but I want to work on that after my template is ready to display some data.
-
-                Interestingly, in react-fetch-codealong-med-kasper, the fetch in useEffect is exactly the same,
-                but there is a difference in the template: an array function has to run before the fetched data
-                is displayed. Running that function must delay the display long enough to avoid the error that 
-                I am encountering.  
-                */}
                 {/* Elevation in EN */}
                 <p>Kote over havets overflade: {hourlyWeatherDataByMariePierreLessard.elevation} m</p> 
                 <p></p>
