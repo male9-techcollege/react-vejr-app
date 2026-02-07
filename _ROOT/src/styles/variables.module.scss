@@ -44,10 +44,6 @@ In other words:
 $font-fam-root-w-fallbacks-by-Marie-Pierre-Lessard: Cochin, Georgia, Cambria, Times, "Times New Roman", serif !default;
 
 // Project-specific font families go here
-/* I reverted to using Times New Roman because Cochin caused scroll on small mobiles, 
-but fixing that wasn't the point of the assignment.
-*/
-$font-fam-root-w-fallbacks-by-Marie-Pierre-Lessard: "Times New Roman", Times, serif;
 
 
 /* #endregion Font families */
