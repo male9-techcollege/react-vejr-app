@@ -8,12 +8,11 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
 import { placeholderThreeDays } from "../data/openmeteo-placeholders";
 
-import gridstyling from "../components/shared/atoms/grid.module.scss";
+import flexcontainerstyling from "../components/shared/atoms/flex-container.module.scss";
 import cardstyling from "../components/shared/m-and-o/card.module.scss";
-//import cardstyling from "../components/shared/m-and-o/card.module.scss";
 
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
-import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
+import { FlexContainerWithUlByMariePierreLessard } from "../components/shared/atoms/flex-container";
 import {
     CardWithSectionByMariePierreLessard
 } from "../components/shared/m-and-o/card";
@@ -22,7 +21,7 @@ import {
 } from "../components/shared/atoms/card-parts";
 import { HeadingElByMariePierreLessard } from "../components/shared/atoms/heading";
 
-export const CardsByMariePierreLessard = () => {
+export const PrognosisByMariePierreLessard = () => {
 
     /* See notes and sources regarding useOutletContext in file global-layout.tsx
     See also experimentation notes in home.tsx 
@@ -36,12 +35,12 @@ export const CardsByMariePierreLessard = () => {
     This is just to hide useEffect and avoid making too many API calls as I work on displaying the data
     and test my code.  
     
-    */
     useEffect(() => {
         fetch(dailyWeatherUrlByMariePierreLessard)
             .then((res) => res.json())
             .then((data) => setDailyWeatherDataByMariePierreLessard(data));
     }, []);
+    */
 
     {/* Maybe TO DO: 
         An unordered list as a container for cards? */}
@@ -76,40 +75,41 @@ export const CardsByMariePierreLessard = () => {
         const localisedSnowfallByMariePierreLessard = fetchedSnowfallByMariePierreLessard.replace(".", ",");
 
         WeatherCardArrayByMariePierreLessard.push(
-            <CardWithSectionByMariePierreLessard key={i}
-                className={cardstyling.unresponsiveFlexedCardAlwaysVerticalByMariePierreLessard}
-            >
-                <HeadingElByMariePierreLessard headingNr={3} headingText={dailyWeatherDataByMariePierreLessard.daily.time[i]} />
-                <CardBodyByMariePierreLessard
-                    className={cardstyling.bodyTextByMariePierreLessard}
+            <li>
+                <CardWithSectionByMariePierreLessard key={i}
+                    className={cardstyling.unresponsiveFlexedCardAlwaysVerticalByMariePierreLessard}
                 >
-                    <div>
-                        <p>Minimums- og maksimumstemperatur på 2 m: {localisedMinTemperature2mByMariePierreLessard} til {localisedMaxTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
-                        <p>Maksimal vindhastighed på 10 m: {localisedMaxWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
-                        {/* dominant wind direction in EN */}
-                        <p>Fremherskende vindretning på 10 m: {dailyWeatherDataByMariePierreLessard.daily.wind_direction_10m_dominant[i]}&deg;</p>
-                    </div>
-                    <div>
-                        {/* precipitation in EN */}
-                        <p>Nedbør: {localisedPrecipitationByMariePierreLessard}&nbsp;mm</p>
-                        <p>Regn: {localisedRainByMariePierreLessard}&nbsp;mm</p>
-                        <p>Snefald: {localisedSnowfallByMariePierreLessard}&nbsp;cm</p>
-                        <p>Nedbørtimetal: {dailyWeatherDataByMariePierreLessard.daily.precipitation_hours[i]}&nbsp;t</p>
-                    </div>
-                    <div>
-                        {/* "The substring() method extracts characters, between two indices (positions), from a string, and returns the substring.
+                    <HeadingElByMariePierreLessard headingNr={3} headingText={dailyWeatherDataByMariePierreLessard.daily.time[i]} />
+                    <CardBodyByMariePierreLessard
+                        className={cardstyling.bodyTextByMariePierreLessard}
+                    >
+                        <div>
+                            <p>Minimums- og maksimumstemperatur på 2 m: {localisedMinTemperature2mByMariePierreLessard} til {localisedMaxTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
+                            <p>Maksimal vindhastighed på 10 m: {localisedMaxWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
+                            {/* dominant wind direction in EN */}
+                            <p>Fremherskende vindretning på 10 m: {dailyWeatherDataByMariePierreLessard.daily.wind_direction_10m_dominant[i]}&deg;</p>
+                        </div>
+                        <div>
+                            {/* precipitation in EN */}
+                            <p>Nedbør: {localisedPrecipitationByMariePierreLessard}&nbsp;mm</p>
+                            <p>Regn: {localisedRainByMariePierreLessard}&nbsp;mm</p>
+                            <p>Snefald: {localisedSnowfallByMariePierreLessard}&nbsp;cm</p>
+                            <p>Nedbørtimetal: {dailyWeatherDataByMariePierreLessard.daily.precipitation_hours[i]}&nbsp;t</p>
+                        </div>
+                        <div>
+                            {/* "The substring() method extracts characters, between two indices (positions), from a string, and returns the substring.
                         The substring() method extracts characters from start to end (exclusive)."
                         https://www.w3schools.com/jsref/jsref_substring.asp */}
-                        <p>Solopgang/solnedgang: {dailyWeatherDataByMariePierreLessard.daily.sunrise[i].substring(11, 16)}/{dailyWeatherDataByMariePierreLessard.daily.sunset[i].substring(11, 16)}</p>
-                        {/* daylight duration or sunshine duration in EN */}
-                        <p>Soltimetal: {daylightDurationinHoursByMariePierreLessard}&nbsp;t</p>
-                        <p>WMO-vejrkode: {dailyWeatherDataByMariePierreLessard.daily.weather_code[i]}</p>
-                    </div>
-                </CardBodyByMariePierreLessard>
-            </CardWithSectionByMariePierreLessard>
+                            <p>Solopgang/solnedgang: {dailyWeatherDataByMariePierreLessard.daily.sunrise[i].substring(11, 16)}/{dailyWeatherDataByMariePierreLessard.daily.sunset[i].substring(11, 16)}</p>
+                            {/* daylight duration or sunshine duration in EN */}
+                            <p>Soltimetal: {daylightDurationinHoursByMariePierreLessard}&nbsp;t</p>
+                            <p>WMO-vejrkode: {dailyWeatherDataByMariePierreLessard.daily.weather_code[i]}</p>
+                        </div>
+                    </CardBodyByMariePierreLessard>
+                </CardWithSectionByMariePierreLessard>
+            </li>
         );
     };
-
 
     return (
         <SectionH1to2ByMariePierreLessard
@@ -119,9 +119,9 @@ export const CardsByMariePierreLessard = () => {
         >
             {/* elevation in EN */}
             <p>Kote over havets overflade: {dailyWeatherDataByMariePierreLessard.elevation}&nbsp;m</p>
-            <GridByMariePierreLessard className={gridstyling.responsiveGridWPassePartoutByMariePierreLessard}>
+            <FlexContainerWithUlByMariePierreLessard className={flexcontainerstyling.responsiveFlexContainerWoPassePartoutWithUlByMariePierreLessard}>
                 {WeatherCardArrayByMariePierreLessard}
-            </GridByMariePierreLessard>
+            </FlexContainerWithUlByMariePierreLessard>
         </SectionH1to2ByMariePierreLessard>
     );
 };

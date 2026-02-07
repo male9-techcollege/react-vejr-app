@@ -43,12 +43,12 @@ export const HomeByMariePierreLessard = () => {
     This is just to hide useEffect and avoid making too many API calls as I work on displaying the data
     and test my code.  
     
-    */
     useEffect(() => {
         fetch(hourlyWeatherUrlByMariePierreLessard)
             .then((res) => res.json())
             .then((data) => setHourlyWeatherDataByMariePierreLessard(data));
     }, []);
+    */
     /* Keep the following reminders:
     1. The setter has to be in useEffect, otherwise there is an infinite loop. It is because React re-renders every time 
     a state changes.
@@ -175,7 +175,7 @@ export const HomeByMariePierreLessard = () => {
             <p>Tid og dato: {fetchedDateByMariePierreLessard} {fetchedHourByMariePierreLessard}</p>
             {/* elevation in EN */}
             <p>Kote over havets overflade: {hourlyWeatherDataByMariePierreLessard.elevation}&nbsp;m</p>
-            {/* TO DO: create single card? Also, grid rows still have a fixed height */}
+            {/* TO DO: maybe create single card? Also, grid rows still have a fixed height */}
             <GridByMariePierreLessard className={gridstyling.responsiveGridWoPassePartoutByMariePierreLessard}>
                 <div>
                     {/* Source for degree symbol as a HTML entity: 

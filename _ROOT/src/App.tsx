@@ -21,7 +21,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import "./App.scss";
 import { GlobalLayoutByMariePierreLessard } from "./layouts/global-layout";
 import { HomeByMariePierreLessard } from "./pages/home";
-import { CardsByMariePierreLessard } from "./pages/prognose";
+import { PrognosisByMariePierreLessard } from "./pages/prognose";
 import { AboutByMariePierreLessard } from "./pages/om";
 import { ErrorPageByMariePierreLessard } from "./pages/notfound";
 
@@ -88,7 +88,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         */}
                         <Route index element={<HomeByMariePierreLessard />} />
-                        <Route path="/prognose" element={<CardsByMariePierreLessard />} /> 
+                        <Route path="/prognose" element={<PrognosisByMariePierreLessard />} /> 
                         <Route path="/about" element={<AboutByMariePierreLessard />} />
                         {/* Fallback page, i.e. error 404 page (in case user enters wrong URL) 
           

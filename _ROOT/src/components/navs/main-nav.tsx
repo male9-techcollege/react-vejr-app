@@ -43,8 +43,9 @@ interface mainNavInterfaceByMariePierreLessard {
 
 export const MainNavByMariePierreLessard = ({ setter }: mainNavInterfaceByMariePierreLessard)=> {
 
-    /* In the following nav, the setter-prop of NavLink replaces the existing state by the text node of NavLink. */
-    /* "The NavLink component builds upon Link by adding functionality to display the active link visually. It inherits all the functionalities of Link but with an additional prop: isActive.
+    /* In the following nav, the setter prop of NavLink replaces the existing state by the text node of NavLink. */
+    /* "The NavLink component builds upon Link by adding functionality to display the active link visually. 
+    It inherits all the functionalities of Link but with an additional prop: isActive.
     Here’s an example of a NavLink component:
     import { NavLink } from 'react-router-dom';
     function MyNavLink() {

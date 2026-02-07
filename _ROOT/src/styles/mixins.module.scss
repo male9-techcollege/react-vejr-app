@@ -39,6 +39,16 @@ the grid-specific gap under the @use rule in the scope of the selector for these
     flex-direction: column;
     gap: $size-reg-spacing-by-Marie-Pierre-Lessard;
 }
+
+/* I found list-style-position by going through the suggestions of Visual Studio Code. */
+@mixin listAgainstLeftMarginByMariePierreLessard {
+    list-style-position: inside; // This aligns the bullets vertically with the left-edge of the text.
+}
+
+@mixin indentedListByMariePierreLessard {
+    list-style-position: inside; // This aligns the bullets vertically with the left-edge of the text.
+    text-indent: $size-reg-spacing-by-Marie-Pierre-Lessard; // This indents the text, not the bullets, but if the bullets are positioned inside, they move to stay close to the text.
+}
 /* #endregion Library mixins for lists */
 
 /* #region Project-specific mixins for lists go here (overriding library mixins + more) */

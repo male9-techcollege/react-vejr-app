@@ -23,3 +23,14 @@ export const FlexContainerByMariePierreLessard = ({ children, ...rest }: extende
         </div>
     );
 };
+
+type extendedGenericInterfaceForUlByMariePierreLessard = HTMLAttributes<HTMLUListElement> & justChildrenByMariePierreLessard;
+
+export const FlexContainerWithUlByMariePierreLessard = ({ children, ...rest }: extendedGenericInterfaceForUlByMariePierreLessard) => {
+    return (
+        <ul {...rest}>
+            {children}
+        </ul>
+    );
+};
+

@@ -4,6 +4,7 @@
 */
 import { useOutletContext } from "react-router";
 import gridstyling from "../components/shared/atoms/grid.module.scss";
+import aboutstyling from "./om.module.scss";
 
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
@@ -56,8 +57,8 @@ export const AboutByMariePierreLessard = ()=> {
                     <div>
                         <h3>Open-Meteos API og DMI's data</h3>
                         <p>Til opgaven skal eleverne bruge <a href="https://open-meteo.com/en/docs/dmi-api" target="_blank" rel="noopener noreferrer">den gratis vejr-API fra Open-Meteo.com</a>, som giver adgang til vejrudsigter fra Danmarks Meteorologiske Institut (DMI).</p>
-                        {/* TO DO use list-style-position:inside; for all lists, to bring bullets to the right */}
-                        <ul>
+                        {/* TO DO use list-style-position:inside; for these lists, to bring bullets to the right */}
+                        <ul className={aboutstyling.bulletsInside}>
                             <li>Open-Meteos licens er <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Der bliver ingen ændring til Open-Meteos API, da opgaven udelukkende er en frontend-opgave.</li>
                             <li>Open-Meteo bruger data fra Danmarks Meteorologiske Institut (DMI). <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">DMI's data må ikke bruges til kommercielle formål.</a></li>
                         </ul>
@@ -71,7 +72,7 @@ export const AboutByMariePierreLessard = ()=> {
                 h2={"Teknologier"}
             >
                     <p>Den nærværende opgave bruger de følgende teknologier:</p>
-                    <ul>
+                    <ul className={aboutstyling.bulletsInside}>
                         <li><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">Node.js</a></li>
                         <li><a href="https://vite.dev/guide" target=" _blank" rel="noopener noreferrer">Vite</a></li>
                         <li><a href="https://www.npmjs.com/package/typescript" target=" _blank" rel="noopener noreferrer">TypeScript</a></li>

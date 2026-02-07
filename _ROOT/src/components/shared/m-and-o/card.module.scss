@@ -82,6 +82,11 @@ The library cards should either be without padding or exist in multiple versions
         }
     }
 
+    div:nth-of-type(2),
+    div:nth-of-type(3) {
+        margin-top: $size-reg-spacing-by-Marie-Pierre-Lessard;
+    }
+
     /* I have to keep the footer selector because of the requirements of exercise 2.
     Since CSS classes have a higher specificity, I can override it anyways
     (for instance in order to put buttons in a grid). */
@@ -93,4 +98,3 @@ The library cards should either be without padding or exist in multiple versions
         right: $size-reg-spacing-by-Marie-Pierre-Lessard;
     }
 }
-
