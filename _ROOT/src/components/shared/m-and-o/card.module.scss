@@ -1,4 +1,4 @@
-/* TO DO will I reuse this? Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
+/* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
 @use "../../../styles/variables.module.scss" as *;
 @use "../../../styles/mixins.module.scss" as *;
 
@@ -76,8 +76,8 @@ The library cards should either be without padding or exist in multiple versions
         img {
             display: block;
             justify-self: center;
-            max-width: 40%;
-            max-height: 40%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
         }
     }

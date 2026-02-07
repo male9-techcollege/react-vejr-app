@@ -9,6 +9,7 @@ import aboutstyling from "./om.module.scss";
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
 import { SectionH2ByMariePierreLessard } from "../components/main-el/section-h2";
+import { HeadingElByMariePierreLessard } from "../components/shared/atoms/heading";
 
 export const AboutByMariePierreLessard = ()=> {
 
@@ -28,9 +29,9 @@ export const AboutByMariePierreLessard = ()=> {
             >
                 <GridByMariePierreLessard className={gridstyling.responsiveGridWoPassePartoutByMariePierreLessard}>
                     <div>
-                        <h3>Om udvikleren</h3>
+                        <HeadingElByMariePierreLessard headingNr={3} headingText={"Om udvikleren"} />
                         <p>Den nærværende opgave skal afleveres i stadier via GitHub-platformen til TechCollege, Aalborg, Danmark. Opgaven hører til eleven Marie-Pierre Lessard. Vilkårene af den følgende MIT-licens gælder.</p>
-                        <h4>MIT License</h4>
+                        <HeadingElByMariePierreLessard headingNr={4} headingText={"MIT License"} />
                         <p>Copyright (c) 2026 Marie-Pierre Hélène Lessard</p>
                         <p>
                             Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,16 +56,21 @@ export const AboutByMariePierreLessard = ()=> {
                         </p>
                     </div>
                     <div>
-                        <h3>Open-Meteos API og DMI's data</h3>
+                        <HeadingElByMariePierreLessard headingNr={3} headingText={"Open-Meteos API og DMI's data"} />
                         <p>Til opgaven skal eleverne bruge <a href="https://open-meteo.com/en/docs/dmi-api" target="_blank" rel="noopener noreferrer">den gratis vejr-API fra Open-Meteo.com</a>, som giver adgang til vejrudsigter fra Danmarks Meteorologiske Institut (DMI).</p>
-                        {/* TO DO use list-style-position:inside; for these lists, to bring bullets to the right */}
                         <ul className={aboutstyling.bulletsInside}>
                             <li>Open-Meteos licens er <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Der bliver ingen ændring til Open-Meteos API, da opgaven udelukkende er en frontend-opgave.</li>
                             <li>Open-Meteo bruger data fra Danmarks Meteorologiske Institut (DMI). <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">DMI's data må ikke bruges til kommercielle formål.</a></li>
                         </ul>
-                        <h3>OpenStreetMaps database</h3>
+                        <HeadingElByMariePierreLessard headingNr={3} headingText={"OpenStreetMaps database"} />
                         <p>TechColleges breddegrad og længdegrad blev fundet i en opensource-kilde, som hedder <a href="https://nominatim.openstreetmap.org/ui/details.html?osmtype=N&osmid=343076498&class=place" target="_blank" rel="noopener noreferrer">OpenStreetMap.org</a>. OpenStreetMaps kortdata stemmer fra et fællesskab, som allesammen kan blive en del af. OpenStreetMaps vilkår ligger <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">her</a>. Licensen for disse data hedder: <a href="https://opendatacommons.org/licenses/dbcl/1-0" target="_blank" rel="noopener noreferrer">"Database Contents License (DbCL) v1.0"</a>. Den følgende erklæring er påkrævet.</p>
                         <p>I den nærværende webapps kodning, er TechColleges breddegrad og længdegrad inkluderet. Disse oplysninger er under en licens, som hedder "Database Contents License" og kan findes på adressen <a href="http://opendatacommons.org/licenses/dbcl/1.0" target="_blank" rel="noopener noreferrer">http://opendatacommons.org/licenses/dbcl/1.0</a>. Disse data blev hverken ændret eller udvidet, og OpenStreetMaps database, som er gjort tilgængelig under en licens, som hedder "Open Database License" og som kan findes på adressen <a href="http://opendatacommons.org/licenses/odbl/1.0" target="_blank" rel="noopener noreferrer">http://opendatacommons.org/licenses/odbl/1.0</a>, blev udelukkende brugt til en søgning på OpenStreetMaps egen side.</p>
+                        <HeadingElByMariePierreLessard headingNr={3} headingText={"Billeder"} />
+                        <ul className={aboutstyling.bulletsInside}>
+                            <li><a href="https://www.vecteezy.com/vector-art/234462-summer-background" target="_blank" rel="noopener noreferrer">Solskin</a> af Kirsty Pargeter (KJ Pargeter Images) på Vecteezy.</li>
+                            <li><a href="https://www.vecteezy.com/vector-art/210590-christmas-snow-background" target="_blank" rel="noopener noreferrer">Snevejr</a> af Kirsty Pargeter (KJ Pargeter Images) på Vecteezy.</li>
+                            <li><a href="https://www.vecteezy.com/vector-art/6549685-rain-hand-drawn-spring-icons" target="_blank" rel="noopener noreferrer">Regnvejr</a> af Worapong Saleewong på Vecteezy.</li>
+                        </ul>
                     </div>
                 </GridByMariePierreLessard>
             </SectionH1to2ByMariePierreLessard>

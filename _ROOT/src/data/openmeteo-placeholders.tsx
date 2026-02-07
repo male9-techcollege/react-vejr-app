@@ -1,11 +1,3 @@
-/* The following objects are local references to avoid making 1000 calls to the API 
-just to find property names and test my code.
-
-TO DO: maybe edit some of the placeholder data so that doesn't actually reflect historic data...
-Indeed, if the server doesn't respond, user will be presented with a realistic forecast that looks current unless it is
-a bunch of zeros...
- */
-
 export const placeholderCurrentWeather = {
     "latitude": 57.044746,
     "longitude": 9.955109,

@@ -10,7 +10,11 @@ import { placeholderCurrentWeather } from "../data/openmeteo-placeholders";
 import gridstyling from "../components/shared/atoms/grid.module.scss";
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
+import { ImgComponentByMariePierreLessard } from "../components/shared/atoms/img-el"
 
+import snow from "../assets/snowy-background-1609.jpg";
+import rain from "../assets/vecteezy_rain-hand-drawn-spring-icons_6549685.jpg";
+import sunshine from "../assets/summer-background-1303.jpg";
 
 export const HomeByMariePierreLessard = () => {
 
@@ -39,16 +43,13 @@ export const HomeByMariePierreLessard = () => {
     Since this payload is rather detailed and scientific, I saved it in my folder types > file openmeteo-current-sample
     to have a local reference and avoid making 1000 calls to the API just to find property names.
     */
-    /* TO DO Put this code out of the comment when I am done with programming. Then hide again to do styling.
-    This is just to hide useEffect and avoid making too many API calls as I work on displaying the data
-    and test my code.  
-    
+
     useEffect(() => {
         fetch(hourlyWeatherUrlByMariePierreLessard)
             .then((res) => res.json())
             .then((data) => setHourlyWeatherDataByMariePierreLessard(data));
     }, []);
-    */
+
     /* Keep the following reminders:
     1. The setter has to be in useEffect, otherwise there is an infinite loop. It is because React re-renders every time 
     a state changes.
@@ -160,6 +161,25 @@ export const HomeByMariePierreLessard = () => {
     const fetchedWindDirection10mByMariePierreLessard = hourlyWeatherDataByMariePierreLessard.hourly.wind_direction_10m[currentTimeOfDayByMariePierreLessard].toString();
     const localisedWindDirection10mByMariePierreLessard = fetchedWindDirection10mByMariePierreLessard.replace(".", ",");
 
+    const [imageToDisplayByMariePierreLessard, setImageToDisplayByMariePierreLessard] = useState<string>("../assets/snowy background 1609.jpg");
+    const [weatherNameByMariePierreLessard, setWeatherNameByMariePierreLessard] = useState<string>("Snevejr");
+
+    useEffect(() => {
+        if (fetchedSnowfallByMariePierreLessard > 0) {
+            setImageToDisplayByMariePierreLessard(snow);
+            setWeatherNameByMariePierreLessard("Snevejr");
+            console.log(imageToDisplayByMariePierreLessard);
+        } else if (fetchedRainByMariePierreLessard > 0) {
+            setImageToDisplayByMariePierreLessard(rain);
+            setWeatherNameByMariePierreLessard("Regnvejr");
+            console.log(imageToDisplayByMariePierreLessard);
+        } else {
+            setImageToDisplayByMariePierreLessard(sunshine);
+            setWeatherNameByMariePierreLessard("Solskin");
+            console.log(imageToDisplayByMariePierreLessard);
+        };
+    });
+
     /* Kilder for at forstå meteorologiske begreber:
     "Once wind direction is measured, it can be reported in either cardinal directions or degrees:
     Cardinal Directions: It is important to note the direction from which the wind is blowing. For example, a westerly wind blows from west to east.
@@ -175,40 +195,46 @@ export const HomeByMariePierreLessard = () => {
             <p>Tid og dato: {fetchedDateByMariePierreLessard} {fetchedHourByMariePierreLessard}</p>
             {/* elevation in EN */}
             <p>Kote over havets overflade: {hourlyWeatherDataByMariePierreLessard.elevation}&nbsp;m</p>
-            {/* TO DO: maybe create single card? Also, grid rows still have a fixed height */}
             <GridByMariePierreLessard className={gridstyling.responsiveGridWoPassePartoutByMariePierreLessard}>
+                <ImgComponentByMariePierreLessard
+                    src={imageToDisplayByMariePierreLessard}
+                    alt={weatherNameByMariePierreLessard}
+                    loading={"eager"}
+                />
                 <div>
-                    {/* Source for degree symbol as a HTML entity: 
+                    <div>
+                        {/* Source for degree symbol as a HTML entity: 
                 https://www.shecodes.io/athena/27147-how-to-write-the-degree-symbol-in-html */}
-                    <p>Temperatur på 2 m: {localisedTemperature2mByMariePierreLessard}&nbsp;&deg;C</p>
-                    {/* relative_humidity in EN */}
-                    <p>Relativ luftfugtighed på 2 m: {hourlyWeatherDataByMariePierreLessard.hourly.relative_humidity_2m[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
-                    {/* apparent temperature in EN */}
-                    <p>Følt temperatur: {localisedApparentTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
-                </div>
-                <div>
-                    {/* precipitation in EN */}
-                    <p>Nedbør: {localisedPrecipitationByMariePierreLessard}&nbsp;mm</p>
-                    <p>Snefald: {localisedSnowfallByMariePierreLessard}&nbsp;cm</p>
-                    <p>Regn: {localisedRainByMariePierreLessard}&nbsp;mm</p>
-                </div>
-                <div>
-                    <p>Vindhastighed på 10 m: {localisedWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
-                    <p>Vindretning på 10 m: {localisedWindDirection10mByMariePierreLessard}&deg;</p>
-                </div>
-                <div>
-                    {/* visibility in EN */}
-                    <p>Sigtbarhed: {hourlyWeatherDataByMariePierreLessard.hourly.visibility[currentTimeOfDayByMariePierreLessard]}&nbsp;m</p>
-                    {/* Source of model for this conditional with ternary operator: 
+                        <p>Temperatur på 2 m: {localisedTemperature2mByMariePierreLessard}&nbsp;&deg;C</p>
+                        {/* relative_humidity in EN */}
+                        <p>Relativ luftfugtighed på 2 m: {hourlyWeatherDataByMariePierreLessard.hourly.relative_humidity_2m[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
+                        {/* apparent temperature in EN */}
+                        <p>Følt temperatur: {localisedApparentTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
+                    </div>
+                    <div>
+                        {/* precipitation in EN */}
+                        <p>Nedbør: {localisedPrecipitationByMariePierreLessard}&nbsp;mm</p>
+                        <p>Snefald: {localisedSnowfallByMariePierreLessard}&nbsp;cm</p>
+                        <p>Regn: {localisedRainByMariePierreLessard}&nbsp;mm</p>
+                    </div>
+                    <div>
+                        <p>Vindhastighed på 10 m: {localisedWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
+                        <p>Vindretning på 10 m: {localisedWindDirection10mByMariePierreLessard}&deg;</p>
+                    </div>
+                    <div>
+                        {/* visibility in EN */}
+                        <p>Sigtbarhed: {hourlyWeatherDataByMariePierreLessard.hourly.visibility[currentTimeOfDayByMariePierreLessard]}&nbsp;m</p>
+                        {/* Source of model for this conditional with ternary operator: 
                     https://react.dev/learn/conditional-rendering */}
-                    <p>Er der daglys? {hourlyWeatherDataByMariePierreLessard.hourly.is_day[currentTimeOfDayByMariePierreLessard] === 0 ? ("Nej") : ("Ja")}</p>
+                        <p>Er der daglys? {hourlyWeatherDataByMariePierreLessard.hourly.is_day[currentTimeOfDayByMariePierreLessard] === 0 ? ("Nej") : ("Ja")}</p>
+                    </div>
+                    <div>
+                        {/* cloud cover in EN */}
+                        <p>Skydække: {hourlyWeatherDataByMariePierreLessard.hourly.cloud_cover[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
+                        <p>Skydække på 2 m (tåge): {hourlyWeatherDataByMariePierreLessard.hourly.cloud_cover_2m[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
+                    </div>
+                    <p>WMO-vejrkode: {hourlyWeatherDataByMariePierreLessard.hourly.weather_code[currentTimeOfDayByMariePierreLessard]}</p>
                 </div>
-                <div>
-                    {/* cloud cover in EN */}
-                    <p>Skydække: {hourlyWeatherDataByMariePierreLessard.hourly.cloud_cover[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
-                    <p>Skydække på 2 m (tåge): {hourlyWeatherDataByMariePierreLessard.hourly.cloud_cover_2m[currentTimeOfDayByMariePierreLessard]}&nbsp;%</p>
-                </div>
-                <p>WMO-vejrkode: {hourlyWeatherDataByMariePierreLessard.hourly.weather_code[currentTimeOfDayByMariePierreLessard]}</p>
             </GridByMariePierreLessard>
         </SectionH1to2ByMariePierreLessard>
     );

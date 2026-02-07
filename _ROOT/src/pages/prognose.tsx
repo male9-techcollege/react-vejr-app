@@ -20,6 +20,11 @@ import {
     CardBodyByMariePierreLessard
 } from "../components/shared/atoms/card-parts";
 import { HeadingElByMariePierreLessard } from "../components/shared/atoms/heading";
+import { ImgComponentByMariePierreLessard } from "../components/shared/atoms/img-el"
+
+import snow from "../assets/snowy-background-1609.jpg";
+import rain from "../assets/vecteezy_rain-hand-drawn-spring-icons_6549685.jpg";
+import sunshine from "../assets/summer-background-1303.jpg";
 
 export const PrognosisByMariePierreLessard = () => {
 
@@ -31,19 +36,12 @@ export const PrognosisByMariePierreLessard = () => {
     const dailyWeatherUrlByMariePierreLessard = "https://api.open-meteo.com/v1/forecast?latitude=57.04768&longitude=9.967618&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,snowfall_sum,precipitation_hours&timezone=Europe%2FBerlin&forecast_days=3&models=dmi_seamless";
     const [dailyWeatherDataByMariePierreLessard, setDailyWeatherDataByMariePierreLessard] = useState<any>(placeholderThreeDays);
 
-    /* TO DO Put this code out of the comment when I am done with programming. Then hide again to do styling.
-    This is just to hide useEffect and avoid making too many API calls as I work on displaying the data
-    and test my code.  
-    
     useEffect(() => {
         fetch(dailyWeatherUrlByMariePierreLessard)
             .then((res) => res.json())
             .then((data) => setDailyWeatherDataByMariePierreLessard(data));
     }, []);
-    */
 
-    {/* Maybe TO DO: 
-        An unordered list as a container for cards? */}
     /* Source for the use of a for loop outside of the return statement in order to generate components,
     which are inserted in the return statement with a constant ("variable"): 
     https://stackoverflow.com/questions/22876978/loop-inside-react-jsx
@@ -54,8 +52,7 @@ export const PrognosisByMariePierreLessard = () => {
         const daylightDurationinHoursByMariePierreLessard = Math.round(dailyWeatherDataByMariePierreLessard.daily.daylight_duration[i] / 60 / 60);
 
         /* Localisation of numbers:
-        TO DO
-        Conversion of strings with . as decimal separator to strings with , as decimal separator
+        To convert strings with . as decimal separator to strings with , as decimal separator:
         "The replace() method searches a string for a value or a regular expression.
         The replace() method returns a new string with the value(s) replaced.
         The replace() method does not change the original string."
@@ -74,6 +71,23 @@ export const PrognosisByMariePierreLessard = () => {
         const fetchedSnowfallByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.snowfall_sum[i].toString();
         const localisedSnowfallByMariePierreLessard = fetchedSnowfallByMariePierreLessard.replace(".", ",");
 
+        let imageToDisplayByMariePierreLessard = "../assets/snowy background 1609.jpg";
+        let weatherNameByMariePierreLessard = "Snevejr";
+
+        if (fetchedSnowfallByMariePierreLessard > 0) {
+            imageToDisplayByMariePierreLessard = snow;
+            weatherNameByMariePierreLessard = "Snevejr";
+            console.log(imageToDisplayByMariePierreLessard);
+        } else if (fetchedRainByMariePierreLessard > 0) {
+            imageToDisplayByMariePierreLessard = rain;
+            weatherNameByMariePierreLessard = "Regnvejr";
+            console.log(imageToDisplayByMariePierreLessard);
+        } else {
+            imageToDisplayByMariePierreLessard = sunshine;
+            weatherNameByMariePierreLessard = "Solskin";
+            console.log(imageToDisplayByMariePierreLessard);
+        };
+
         WeatherCardArrayByMariePierreLessard.push(
             <li>
                 <CardWithSectionByMariePierreLessard key={i}
@@ -83,6 +97,11 @@ export const PrognosisByMariePierreLessard = () => {
                     <CardBodyByMariePierreLessard
                         className={cardstyling.bodyTextByMariePierreLessard}
                     >
+                        <ImgComponentByMariePierreLessard
+                            src={imageToDisplayByMariePierreLessard}
+                            alt={weatherNameByMariePierreLessard}
+                            loading={"eager"}
+                        />
                         <div>
                             <p>Minimums- og maksimumstemperatur på 2 m: {localisedMinTemperature2mByMariePierreLessard} til {localisedMaxTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
                             <p>Maksimal vindhastighed på 10 m: {localisedMaxWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
