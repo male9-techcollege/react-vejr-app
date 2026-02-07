@@ -1,5 +1,5 @@
 /* Open-Meteo provides ready-made code to use the API's output based on settings chosen on the site.
-Whenever I made changes to that code, I put my name in the code. */
+Whenever I make changes to that code, I put my name in the code. */
 
 import { fetchWeatherApi } from "openmeteo";
 

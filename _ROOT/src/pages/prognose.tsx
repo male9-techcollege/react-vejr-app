@@ -1,27 +1,28 @@
 /* Source for the creation of pages:
+- react-fetch-codealong-med-kasper
 - react-router-codealong-med-kasper
+- react-wallywood-codealong-med-kasper (Math.round())
 - Min tidligere opgave react-gallery-wrapper
 */
+import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
+import { placeholderThreeDays } from "../data/openmeteo-placeholders";
+
 import gridstyling from "../components/shared/atoms/grid.module.scss";
-import anchorcardstyling from "../components/shared/m-and-o/card-anchor.module.scss";
+import cardstyling from "../components/shared/m-and-o/card.module.scss";
 //import cardstyling from "../components/shared/m-and-o/card.module.scss";
 
 import { SectionH1to2ByMariePierreLessard } from "../components/main-el/section-h1-2";
 import { GridByMariePierreLessard } from "../components/shared/atoms/grid";
 import {
-    CardWithExternalLinkAndArticleByMariePierreLessard,
-    CardWithInternalLinkAndArticleByMariePierreLessard,
-    Card3PartsWithExternalLinkAndArticleByMariePierreLessard,
-    Card3PartsWithInternalLinkAndArticleByMariePierreLessard
-} from "../components/shared/m-and-o/card-anchor";
+    CardWithSectionByMariePierreLessard
+} from "../components/shared/m-and-o/card";
 import {
-    CardBodyByMariePierreLessard,
-    CardFooterByMariePierreLessard
+    CardBodyByMariePierreLessard
 } from "../components/shared/atoms/card-parts";
 import { HeadingElByMariePierreLessard } from "../components/shared/atoms/heading";
 
-export const CardsByMariePierreLessard = ()=> {
+export const CardsByMariePierreLessard = () => {
 
     /* See notes and sources regarding useOutletContext in file global-layout.tsx
     See also experimentation notes in home.tsx 
@@ -29,96 +30,97 @@ export const CardsByMariePierreLessard = ()=> {
     const { activeNavItemByMariePierreLessard } = useOutletContext<any>();
 
     const dailyWeatherUrlByMariePierreLessard = "https://api.open-meteo.com/v1/forecast?latitude=57.04768&longitude=9.967618&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,snowfall_sum,precipitation_hours&timezone=Europe%2FBerlin&forecast_days=3&models=dmi_seamless";
+    const [dailyWeatherDataByMariePierreLessard, setDailyWeatherDataByMariePierreLessard] = useState<any>(placeholderThreeDays);
+
+    /* TO DO Put this code out of the comment when I am done with programming. Then hide again to do styling.
+    This is just to hide useEffect and avoid making too many API calls as I work on displaying the data
+    and test my code.  
+    
+    */
+    useEffect(() => {
+        fetch(dailyWeatherUrlByMariePierreLessard)
+            .then((res) => res.json())
+            .then((data) => setDailyWeatherDataByMariePierreLessard(data));
+    }, []);
+
+    {/* Maybe TO DO: 
+        An unordered list as a container for cards? */}
+    /* Source for the use of a for loop outside of the return statement in order to generate components,
+    which are inserted in the return statement with a constant ("variable"): 
+    https://stackoverflow.com/questions/22876978/loop-inside-react-jsx
+    */
+    const WeatherCardArrayByMariePierreLessard = [];
+    for (let i = 0; i < 3; i++) {
+
+        const daylightDurationinHoursByMariePierreLessard = Math.round(dailyWeatherDataByMariePierreLessard.daily.daylight_duration[i] / 60 / 60);
+
+        /* Localisation of numbers:
+        TO DO
+        Conversion of strings with . as decimal separator to strings with , as decimal separator
+        "The replace() method searches a string for a value or a regular expression.
+        The replace() method returns a new string with the value(s) replaced.
+        The replace() method does not change the original string."
+        https://www.w3schools.com/jsref/jsref_replace.asp
+        */
+        const fetchedMinTemperature2mByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.temperature_2m_min[i].toString();
+        const localisedMinTemperature2mByMariePierreLessard = fetchedMinTemperature2mByMariePierreLessard.replace(".", ",");
+        const fetchedMaxTemperatureByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.temperature_2m_max[i].toString();
+        const localisedMaxTemperatureByMariePierreLessard = fetchedMaxTemperatureByMariePierreLessard.replace(".", ",");
+        const fetchedMaxWindSpeed10mByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.wind_speed_10m_max[i].toString();
+        const localisedMaxWindSpeed10mByMariePierreLessard = fetchedMaxWindSpeed10mByMariePierreLessard.replace(".", ",");
+        const fetchedPrecipitationByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.precipitation_sum[i].toString();
+        const localisedPrecipitationByMariePierreLessard = fetchedPrecipitationByMariePierreLessard.replace(".", ",");
+        const fetchedRainByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.rain_sum[i].toString();
+        const localisedRainByMariePierreLessard = fetchedRainByMariePierreLessard.replace(".", ",");
+        const fetchedSnowfallByMariePierreLessard = dailyWeatherDataByMariePierreLessard.daily.snowfall_sum[i].toString();
+        const localisedSnowfallByMariePierreLessard = fetchedSnowfallByMariePierreLessard.replace(".", ",");
+
+        WeatherCardArrayByMariePierreLessard.push(
+            <CardWithSectionByMariePierreLessard key={i}
+                className={cardstyling.unresponsiveFlexedCardAlwaysVerticalByMariePierreLessard}
+            >
+                <HeadingElByMariePierreLessard headingNr={3} headingText={dailyWeatherDataByMariePierreLessard.daily.time[i]} />
+                <CardBodyByMariePierreLessard
+                    className={cardstyling.bodyTextByMariePierreLessard}
+                >
+                    <div>
+                        <p>Minimums- og maksimumstemperatur på 2 m: {localisedMinTemperature2mByMariePierreLessard} til {localisedMaxTemperatureByMariePierreLessard}&nbsp;&deg;C</p>
+                        <p>Maksimal vindhastighed på 10 m: {localisedMaxWindSpeed10mByMariePierreLessard}&nbsp;km/t</p>
+                        {/* dominant wind direction in EN */}
+                        <p>Fremherskende vindretning på 10 m: {dailyWeatherDataByMariePierreLessard.daily.wind_direction_10m_dominant[i]}&deg;</p>
+                    </div>
+                    <div>
+                        {/* precipitation in EN */}
+                        <p>Nedbør: {localisedPrecipitationByMariePierreLessard}&nbsp;mm</p>
+                        <p>Regn: {localisedRainByMariePierreLessard}&nbsp;mm</p>
+                        <p>Snefald: {localisedSnowfallByMariePierreLessard}&nbsp;cm</p>
+                        <p>Nedbørtimetal: {dailyWeatherDataByMariePierreLessard.daily.precipitation_hours[i]}&nbsp;t</p>
+                    </div>
+                    <div>
+                        {/* "The substring() method extracts characters, between two indices (positions), from a string, and returns the substring.
+                        The substring() method extracts characters from start to end (exclusive)."
+                        https://www.w3schools.com/jsref/jsref_substring.asp */}
+                        <p>Solopgang/solnedgang: {dailyWeatherDataByMariePierreLessard.daily.sunrise[i].substring(11, 16)}/{dailyWeatherDataByMariePierreLessard.daily.sunset[i].substring(11, 16)}</p>
+                        {/* daylight duration or sunshine duration in EN */}
+                        <p>Soltimetal: {daylightDurationinHoursByMariePierreLessard}&nbsp;t</p>
+                        <p>WMO-vejrkode: {dailyWeatherDataByMariePierreLessard.daily.weather_code[i]}</p>
+                    </div>
+                </CardBodyByMariePierreLessard>
+            </CardWithSectionByMariePierreLessard>
+        );
+    };
+
 
     return (
         <SectionH1to2ByMariePierreLessard
             id={"prognose"}
             h1={`${activeNavItemByMariePierreLessard}`}
-            h2={"For i dag og de to følgende dage"}
+            h2={"Vejret for i dag og de to følgende dage omkring TechCollege, Aalborg, Danmark"}
         >
-            {/* Maybe TO DO, perhaps in exercise 3: 
-                    An unordered list component styled as a grid would be better as a card
-                    container from a SEO perspective, especially if card contents comes from an array; 
-                    see main-navigation styling. 
-                    The card component itself is an anchor element. See why I chose that in card.tsx */}
+            {/* elevation in EN */}
+            <p>Kote over havets overflade: {dailyWeatherDataByMariePierreLessard.elevation}&nbsp;m</p>
             <GridByMariePierreLessard className={gridstyling.responsiveGridWPassePartoutByMariePierreLessard}>
-
-                {/* I created, styled and kept the 2 following cards, which do not entirely meet
-                the assignment specifications, to create the components (building blocks) needed 
-                to create the organism described by the instructions. 
-                I started with this because we never passed props more than one generation down from App(),
-                and I wasn't sure that I guessed how to do it right. I needed to make sure that my
-                components worked and that their styling was adequate before trying that more
-                difficult thing. Otherwise, I could have encountered bugs stemming from the atoms and
-                molecules while trying to build an organism. 
-                I kept these 2 cards visible because part of my work becomes invisible in the organisms
-                required by the specifications. Some functionality gets lost (the rest parameter can
-                only be used to pass props to the parent component). 
-                */}
-                <CardWithExternalLinkAndArticleByMariePierreLessard
-                    href={"https://www.molieres-bloodhound.dk"}
-                    className={anchorcardstyling.unresponsiveFlexedAnchorCardAlwaysVerticalByMariePierreLessard}
-                >
-                    <HeadingElByMariePierreLessard headingNr={3} headingText={"Example of affiliate link"} />
-                    <CardBodyByMariePierreLessard
-                        bodyContent={"Short description followed by an addition, which can also be an alternative."}
-                        className={anchorcardstyling.bodyTextByMariePierreLessard}
-                    >
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam non quibusdam veniam error.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p>Nobody knows what this means.</p>
-                    </CardBodyByMariePierreLessard>
-                    <CardFooterByMariePierreLessard
-                        footerContent={"Click to learn more."}
-                        className={anchorcardstyling.footnoteByMariePierreLessard}
-                    >
-                        <p>This link will open in a new tab.</p>
-                    </CardFooterByMariePierreLessard>
-                </CardWithExternalLinkAndArticleByMariePierreLessard>
-                <CardWithInternalLinkAndArticleByMariePierreLessard
-                    href={"#globalFooter"}
-                    className={anchorcardstyling.unresponsiveFlexedAnchorCardAlwaysVerticalByMariePierreLessard}
-                >
-                    <HeadingElByMariePierreLessard headingNr={3} headingText={"Name of product/service"} />
-                    <CardBodyByMariePierreLessard
-                        bodyContent={"Short description followed by an addition, which can also be an alternative."}
-                        className={anchorcardstyling.bodyTextByMariePierreLessard}
-                    >
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab.</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam non quibusdam veniam error.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p>Nobody knows what this means.</p>
-                    </CardBodyByMariePierreLessard>
-                    <CardFooterByMariePierreLessard
-                        footerContent={"Price: 999.99 GBP"}
-                        className={anchorcardstyling.footnoteByMariePierreLessard}
-                    >
-                        <span> (No worries: the sales tax is included!)</span>
-                        <p>Click to learn more.</p>
-                    </CardFooterByMariePierreLessard>
-                </CardWithInternalLinkAndArticleByMariePierreLessard>
-
-                <Card3PartsWithExternalLinkAndArticleByMariePierreLessard
-                    href={"https://www.molieres-bloodhound.dk"}
-                    className={anchorcardstyling.unresponsiveFlexedAnchorCardAlwaysVerticalByMariePierreLessard}
-                    headingNr={3}
-                    headingText={"Example of affiliate link"}
-                    bodyContent={"Short description followed by an addition, which can also be an alternative."}
-                    footerContent={"Click to learn more. This link will open in a new tab."}
-                >
-                    Placeholder
-                </Card3PartsWithExternalLinkAndArticleByMariePierreLessard>
-                <Card3PartsWithInternalLinkAndArticleByMariePierreLessard
-                    href={"#globalFooter"}
-                    className={anchorcardstyling.unresponsiveFlexedAnchorCardAlwaysVerticalByMariePierreLessard}
-                    headingNr={3}
-                    headingText={"Name of product/service"}
-                    bodyContent={"Short description followed by an addition, which can also be an alternative."}
-                    footerContent={"Price: 999.99 GBP (No worries: the sales tax is included!) Click to learn more."}
-                >
-                    Placeholder
-                </Card3PartsWithInternalLinkAndArticleByMariePierreLessard>
+                {WeatherCardArrayByMariePierreLessard}
             </GridByMariePierreLessard>
         </SectionH1to2ByMariePierreLessard>
     );

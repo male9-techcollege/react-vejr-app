@@ -1,8 +1,8 @@
 /* The following objects are local references to avoid making 1000 calls to the API 
 just to find property names and test my code.
 
-TO DO: maybe edit some of the data to make it a placeholder that doesn't actually reflect historic data...
-If the server doesn't respond, user will be presented with a realistic forecast that looks current unless it is
+TO DO: maybe edit some of the placeholder data so that doesn't actually reflect historic data...
+Indeed, if the server doesn't respond, user will be presented with a realistic forecast that looks current unless it is
 a bunch of zeros...
  */
 

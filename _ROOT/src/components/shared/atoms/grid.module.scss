@@ -1,5 +1,5 @@
 /* Kilde for biblioteksstylingen: min tidligere opgave react-gallery-wrapper */
-/* TO DO what about the project-specific styling? Reused? */
+/* TO DO delete the old project-specific styling? is it reusable? */
 @use "../../../styles/variables.module.scss" as *;
 @use "../../../styles/mixins.module.scss" as *;
 
@@ -35,18 +35,6 @@
 /* #endregion Library styling (basic, with responsiveness) */
 
 /* #region Project-specific styling goes here (overriding library styling) */
-/* The grid without passe-partout is in exercise 1. */
-.responsiveGridWoPassePartoutByMariePierreLessard {
-    /* Override */
-    grid-template-rows: repeat(2, 100vh); //Replacing auto because of the giant pictures
-}
-
-@media (min-width: 768px) {
-    .responsiveGridWoPassePartoutByMariePierreLessard {
-        /* Override */
-        grid-template-rows: 90vh; //Replacing auto because of the giant pictures
-    }
-}
 
 /* The grid with passe-partout is in exercise 2. */
 .responsiveGridWPassePartoutByMariePierreLessard {
