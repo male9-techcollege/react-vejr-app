@@ -77,20 +77,20 @@ export const PrognosisByMariePierreLessard = () => {
         if (fetchedSnowfallByMariePierreLessard > 0) {
             imageToDisplayByMariePierreLessard = snow;
             weatherNameByMariePierreLessard = "Snevejr";
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         } else if (fetchedRainByMariePierreLessard > 0) {
             imageToDisplayByMariePierreLessard = rain;
             weatherNameByMariePierreLessard = "Regnvejr";
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         } else {
             imageToDisplayByMariePierreLessard = sunshine;
             weatherNameByMariePierreLessard = "Solskin";
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         };
 
         WeatherCardArrayByMariePierreLessard.push(
-            <li>
-                <CardWithSectionByMariePierreLessard key={i}
+            <li key={i}>
+                <CardWithSectionByMariePierreLessard
                     className={cardstyling.unresponsiveFlexedCardAlwaysVerticalByMariePierreLessard}
                 >
                     <HeadingElByMariePierreLessard headingNr={3} headingText={dailyWeatherDataByMariePierreLessard.daily.time[i]} />

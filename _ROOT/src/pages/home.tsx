@@ -168,15 +168,15 @@ export const HomeByMariePierreLessard = () => {
         if (fetchedSnowfallByMariePierreLessard > 0) {
             setImageToDisplayByMariePierreLessard(snow);
             setWeatherNameByMariePierreLessard("Snevejr");
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         } else if (fetchedRainByMariePierreLessard > 0) {
             setImageToDisplayByMariePierreLessard(rain);
             setWeatherNameByMariePierreLessard("Regnvejr");
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         } else {
             setImageToDisplayByMariePierreLessard(sunshine);
             setWeatherNameByMariePierreLessard("Solskin");
-            console.log(imageToDisplayByMariePierreLessard);
+            // console.log(imageToDisplayByMariePierreLessard);
         };
     });
 
